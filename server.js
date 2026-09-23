@@ -1,6 +1,7 @@
 import express from "express";
 
 const app = express();
+app.set("view engine", "ejs");
 const PORT = 3000;
 
 app.get("/", (req, res) => {
@@ -8,7 +9,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.send("This is a web programming course.");
+  res.render("about", { title: "About" });
 });
 
 app.get("/hello/:name", (req, res) => {
